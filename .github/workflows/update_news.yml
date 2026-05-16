@@ -1,0 +1,45 @@
+name: 🗞️ Atualizar Notícias - Voz Brasil
+
+on:
+  schedule:
+    - cron: '0 11 */2 * *'
+  workflow_dispatch:
+
+jobs:
+  atualizar-noticias:
+    runs-on: ubuntu-latest
+    name: Buscar RSS e Publicar no Netlify
+
+    steps:
+      - name: 📥 Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: 🔄 Buscar notícias e gerar HTML
+        run: python fetch_news.py
+
+      - name: 💾 Commit do HTML atualizado
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Voz Brasil Bot"
+          git add index.html
+          git diff --staged --quiet || git commit -m "🗞️ Notícias atualizadas - $(date +'%d/%m/%Y %H:%M')"
+
+      - name: 🚀 Push para o repositório
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+
+      - name: 🌐 Publicar no Netlify
+        if: ${{ secrets.NETLIFY_HOOK_URL != '' }}
+        run: |
+          curl -X POST -d '{}' "${{ secrets.NETLIFY_HOOK_URL }}"
