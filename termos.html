@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Termos de Uso do Voz Brasil - Portal de Notícias">
+    <title>Termos de Uso - Voz Brasil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0b1020; --bg-secondary: #111827;
+            --blue-neon: #1e90ff; --blue-dark: #0a6fd4;
+            --blue-light: rgba(30,144,255,0.15);
+            --white: #ffffff; --gray-light: #d1d5db; --gray-mid: #6b7280;
+            --glass-bg: rgba(255,255,255,0.06); --glass-border: rgba(255,255,255,0.1);
+            --container-max: 900px; --transition: 0.3s ease;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; background: var(--bg-primary); color: var(--gray-light); line-height: 1.7; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--blue-neon); border-radius: 10px; }
+        .header { background: rgba(11,16,32,0.97); backdrop-filter: blur(20px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid var(--glass-border); }
+        .header .container { display: flex; align-items: center; justify-content: space-between; height: 70px; max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg,var(--blue-neon),#0a6fd4); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #fff; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--white); }
+        .logo-text span { color: var(--blue-neon); }
+        .logo-subtitle { font-size: 0.65rem; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; }
+        .header-back { color: var(--blue-neon); text-decoration: none; font-size: 0.88rem; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: gap var(--transition); }
+        .header-back:hover { gap: 10px; }
+        .page-hero { margin-top: 70px; background: linear-gradient(135deg, #0a1628 0%, #111d35 50%, #0a1628 100%); padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--glass-border); position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(ellipse at center, rgba(30,144,255,0.08) 0%, transparent 60%); }
+        .page-hero-icon { width: 70px; height: 70px; background: var(--blue-light); border: 1px solid rgba(30,144,255,0.3); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--blue-neon); margin: 0 auto 20px; position: relative; z-index: 1; }
+        .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 800; color: var(--white); margin-bottom: 12px; position: relative; z-index: 1; }
+        .page-hero p { color: var(--gray-mid); font-size: 0.95rem; position: relative; z-index: 1; }
+        .page-hero .update-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.3); color: #2ecc71; padding: 4px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600; margin-top: 12px; position: relative; z-index: 1; }
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 20px; }
+        .content-area { padding: 50px 0 80px; }
+        .toc { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; padding: 24px; margin-bottom: 40px; }
+        .toc h3 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .toc h3 i { color: var(--blue-neon); }
+        .toc ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .toc ul li a { color: var(--blue-neon); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; transition: gap var(--transition); }
+        .toc ul li a:hover { gap: 10px; }
+        .section { margin-bottom: 40px; }
+        .section h2 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 16px; padding-left: 16px; border-left: 4px solid var(--blue-neon); display: flex; align-items: center; gap: 10px; }
+        .section h2 i { color: var(--blue-neon); font-size: 1rem; }
+        .section p { font-size: 0.95rem; color: var(--gray-light); margin-bottom: 14px; line-height: 1.8; }
+        .section ul { padding-left: 20px; margin-bottom: 14px; }
+        .section ul li { font-size: 0.92rem; color: var(--gray-light); margin-bottom: 8px; line-height: 1.7; }
+        .warning-box { background: rgba(231,76,60,0.08); border: 1px solid rgba(231,76,60,0.2); border-radius: 10px; padding: 16px 20px; margin: 20px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .warning-box i { color: #e74c3c; margin-top: 2px; flex-shrink: 0; }
+        .warning-box p { font-size: 0.88rem; color: var(--gray-light); margin: 0; }
+        .info-box { background: var(--blue-light); border: 1px solid rgba(30,144,255,0.2); border-radius: 10px; padding: 16px 20px; margin: 20px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .info-box i { color: var(--blue-neon); margin-top: 2px; flex-shrink: 0; }
+        .info-box p { font-size: 0.88rem; color: var(--gray-light); margin: 0; }
+        .contact-box { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; padding: 28px; text-align: center; margin-top: 40px; }
+        .contact-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+        .contact-box p { font-size: 0.88rem; color: var(--gray-mid); margin-bottom: 16px; }
+        .contact-box a { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-neon); color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all var(--transition); }
+        .contact-box a:hover { background: #fff; color: var(--blue-neon); }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--glass-border); padding: 30px 0; text-align: center; }
+        .footer p { font-size: 0.82rem; color: var(--gray-mid); }
+        .footer a { color: var(--blue-neon); text-decoration: none; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 12px; }
+        .footer-links a { font-size: 0.82rem; color: var(--gray-mid); text-decoration: none; transition: color var(--transition); }
+        .footer-links a:hover { color: var(--blue-neon); }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px; background: var(--blue-neon); color: #fff; border: none; border-radius: 12px; font-size: 1.1rem; cursor: pointer; z-index: 900; opacity: 0; visibility: hidden; transition: all var(--transition); box-shadow: 0 0 20px rgba(30,144,255,0.3); display: flex; align-items: center; justify-content: center; }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: #fff; color: var(--blue-neon); transform: translateY(-3px); }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 1.6rem; }
+            .toc ul { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container" style="max-width:1280px;">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <div class="logo-text">Voz <span>Brasil</span></div>
+                    <div class="logo-subtitle">Portal de Notícias</div>
+                </div>
+            </a>
+            <a href="index.html" class="header-back">
+                <i class="fas fa-arrow-left"></i> Voltar ao Portal
+            </a>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <div class="page-hero-icon"><i class="fas fa-file-contract"></i></div>
+        <h1>Termos de Uso</h1>
+        <p>Condições para utilização do portal Voz Brasil</p>
+        <div class="update-badge"><i class="fas fa-sync-alt"></i> Última atualização: Maio de 2026</div>
+    </div>
+
+    <div class="container">
+        <div class="content-area">
+
+            <div class="toc">
+                <h3><i class="fas fa-list"></i> Índice</h3>
+                <ul>
+                    <li><a href="#aceitacao"><i class="fas fa-chevron-right"></i> Aceitação dos Termos</a></li>
+                    <li><a href="#servicos"><i class="fas fa-chevron-right"></i> Serviços Oferecidos</a></li>
+                    <li><a href="#conteudo"><i class="fas fa-chevron-right"></i> Conteúdo do Portal</a></li>
+                    <li><a href="#conduta"><i class="fas fa-chevron-right"></i> Conduta do Usuário</a></li>
+                    <li><a href="#propriedade"><i class="fas fa-chevron-right"></i> Propriedade Intelectual</a></li>
+                    <li><a href="#responsabilidade"><i class="fas fa-chevron-right"></i> Limitação de Responsabilidade</a></li>
+                    <li><a href="#alteracoes"><i class="fas fa-chevron-right"></i> Alterações nos Termos</a></li>
+                    <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="section" id="aceitacao">
+                <h2><i class="fas fa-check-circle"></i> 1. Aceitação dos Termos</h2>
+                <p>Ao acessar e utilizar o portal <strong style="color:var(--white)">Voz Brasil</strong> (disponível em <strong style="color:var(--blue-neon)">vozbrasil.netlify.app</strong>), você declara ter lido, compreendido e concordado com estes Termos de Uso.</p>
+                <p>Se você não concorda com qualquer parte destes termos, por favor, não utilize nosso portal.</p>
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Estes Termos de Uso são regidos pelas leis brasileiras, em especial o <strong>Código de Defesa do Consumidor</strong>, o <strong>Marco Civil da Internet (Lei nº 12.965/2014)</strong> e a <strong>LGPD (Lei nº 13.709/2018)</strong>.</p>
+                </div>
+            </div>
+
+            <div class="section" id="servicos">
+                <h2><i class="fas fa-newspaper"></i> 2. Serviços Oferecidos</h2>
+                <p>O Voz Brasil é um portal de notícias que agrega e exibe conteúdo jornalístico de fontes públicas confiáveis, incluindo:</p>
+                <ul>
+                    <li>CNN Brasil — notícias gerais</li>
+                    <li>Exame — economia e negócios</li>
+                    <li>Lance — esportes</li>
+                    <li>Adrenaline — tecnologia</li>
+                    <li>Revista Oeste — política</li>
+                </ul>
+                <p>O conteúdo é atualizado automaticamente e exibido com os devidos créditos às fontes originais. Clicando em qualquer notícia, você será direcionado ao site original para leitura completa.</p>
+            </div>
+
+            <div class="section" id="conteudo">
+                <h2><i class="fas fa-file-alt"></i> 3. Conteúdo do Portal</h2>
+                <p>O Voz Brasil atua como agregador de notícias e não produz o conteúdo jornalístico exibido. Portanto:</p>
+                <ul>
+                    <li>As notícias exibidas são de responsabilidade dos veículos de comunicação originais.</li>
+                    <li>O Voz Brasil não se responsabiliza pela precisão, completude ou atualidade das informações das fontes externas.</li>
+                    <li>Opiniões expressas nas notícias agregadas não representam a posição do Voz Brasil.</li>
+                    <li>O conteúdo exibido é de propriedade das respectivas fontes originais.</li>
+                </ul>
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Para leitura completa de qualquer notícia, o usuário será direcionado ao site original da fonte. O Voz Brasil exibe apenas resumos e títulos das notícias.</p>
+                </div>
+            </div>
+
+            <div class="section" id="conduta">
+                <h2><i class="fas fa-user-check"></i> 4. Conduta do Usuário</h2>
+                <p>Ao utilizar o portal Voz Brasil, você se compromete a:</p>
+                <ul>
+                    <li>Usar o portal apenas para fins lícitos e legítimos.</li>
+                    <li>Não tentar acessar áreas restritas ou sistemas do portal de forma não autorizada.</li>
+                    <li>Não reproduzir, redistribuir ou comercializar conteúdo do portal sem autorização.</li>
+                    <li>Não utilizar ferramentas automatizadas para coletar dados do portal (scraping).</li>
+                    <li>Respeitar os direitos de propriedade intelectual das fontes de notícias.</li>
+                </ul>
+            </div>
+
+            <div class="section" id="propriedade">
+                <h2><i class="fas fa-copyright"></i> 5. Propriedade Intelectual</h2>
+                <p>O design, layout, logotipo e elementos visuais do portal Voz Brasil são de propriedade exclusiva do portal e estão protegidos pela legislação de propriedade intelectual brasileira.</p>
+                <p>O conteúdo jornalístico exibido pertence aos respectivos veículos de comunicação originais (CNN Brasil, Exame, Lance, Adrenaline, Revista Oeste).</p>
+                <div class="info-box">
+                    <i class="fas fa-link"></i>
+                    <p>É permitido compartilhar links para as páginas do Voz Brasil, desde que não seja de forma a sugerir parceria ou endosso não autorizado.</p>
+                </div>
+            </div>
+
+            <div class="section" id="responsabilidade">
+                <h2><i class="fas fa-balance-scale"></i> 6. Limitação de Responsabilidade</h2>
+                <p>O Voz Brasil não se responsabiliza por:</p>
+                <ul>
+                    <li>Interrupções temporárias no acesso ao portal por manutenção ou problemas técnicos.</li>
+                    <li>Imprecisões ou erros no conteúdo das fontes externas agregadas.</li>
+                    <li>Danos decorrentes do uso das informações disponibilizadas no portal.</li>
+                    <li>Conteúdo de sites de terceiros para os quais o portal redireciona.</li>
+                    <li>Alterações, suspensão ou descontinuação dos serviços, com ou sem aviso prévio.</li>
+                </ul>
+            </div>
+
+            <div class="section" id="alteracoes">
+                <h2><i class="fas fa-edit"></i> 7. Alterações nos Termos</h2>
+                <p>O Voz Brasil reserva-se o direito de modificar estes Termos de Uso a qualquer momento. As alterações entram em vigor imediatamente após a publicação na página.</p>
+                <p>Recomendamos que você revise periodicamente esta página para se manter informado sobre eventuais mudanças. O uso continuado do portal após alterações nos termos implica na aceitação das novas condições.</p>
+            </div>
+
+            <div class="contact-box" id="contato">
+                <h3><i class="fas fa-envelope" style="color:var(--blue-neon);margin-right:8px;"></i> Dúvidas sobre os Termos?</h3>
+                <p>Entre em contato com nossa equipe para esclarecimentos sobre estes Termos de Uso.</p>
+                <a href="mailto:impulsodigitaloficial.br@gmail.com">
+                    <i class="fas fa-envelope"></i> impulsodigitaloficial.br@gmail.com
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <a href="index.html">Voz Brasil</a>. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="termos.html">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('backToTop').classList.toggle('visible', window.pageYOffset > 400);
+        });
+        document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+    </script>
+</body>
+</html>
