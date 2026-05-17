@@ -61,14 +61,50 @@ RSS_SOURCES = {
     }
 }
 
-# Imagens padrão por categoria (caso o RSS não tenha imagem)
+# Imagens padrão por categoria — múltiplas opções para variar (caso o RSS não traga imagem)
 FALLBACK_IMAGES = {
-    "geral":     "https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600&q=80",
-    "economia":  "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80",
-    "esportes":  "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?w=600&q=80",
-    "tecnologia":"https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80",
-    "politica":  "https://images.unsplash.com/photo-1523108021757-3b88e9e1cd85?w=600&q=80"
+    "geral": [
+        "https://images.unsplash.com/photo-1504711434969-e33886168d6c?w=600&q=80",  # jornalismo
+        "https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&q=80",  # notícias
+        "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?w=600&q=80",  # jornal impresso
+        "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80",     # reunião/debate
+        "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&q=80",  # rádio/comunicação
+    ],
+    "economia": [
+        "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&q=80",  # dinheiro
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",     # finanças
+        "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=600&q=80",  # negócios
+        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",  # executivo
+        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80",  # contrato/trabalho
+    ],
+    "esportes": [
+        "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&q=80",  # atletismo
+        "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80",  # futebol
+        "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80",     # basquete
+        "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&q=80",  # corrida
+        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",  # fitness/treino
+    ],
+    "tecnologia": [
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",  # circuito
+        "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&q=80",  # laptop moderno
+        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=80",     # cibersegurança
+        "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",  # robô/IA
+        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80",  # análise dados
+    ],
+    "politica": [
+        "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80",  # votação/democracia
+        "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=600&q=80",     # congresso
+        "https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=600&q=80",     # discurso
+        "https://images.unsplash.com/photo-1568092795958-a3e4aadc5d0c?w=600&q=80",  # bandeira brasil
+        "https://images.unsplash.com/photo-1570126618953-d437176e8c79?w=600&q=80",  # protesto/manifestação
+    ],
 }
+
+import random
+def get_fallback_image(chave):
+    """Retorna uma imagem padrão aleatória da categoria para variar o visual."""
+    opcoes = FALLBACK_IMAGES.get(chave, FALLBACK_IMAGES["geral"])
+    return random.choice(opcoes)
 
 # ============================================================
 # FUNÇÕES AUXILIARES
@@ -164,7 +200,7 @@ def buscar_noticias(chave, config, limite=6):
 
             imagem = extrair_imagem(entry)
             if not imagem:
-                imagem = FALLBACK_IMAGES.get(chave, FALLBACK_IMAGES['geral'])
+                imagem = get_fallback_image(chave)
 
             noticia = {
                 "title":        titulo,
