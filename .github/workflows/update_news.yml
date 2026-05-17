@@ -1,4 +1,4 @@
-name: 🗞️ Atualizar Notícias - Voz Brasil
+name: Atualizar Noticias - Voz Brasil
 
 on:
   schedule:
@@ -8,35 +8,32 @@ on:
 jobs:
   atualizar-noticias:
     runs-on: ubuntu-latest
-    name: Buscar RSS e Publicar no Netlify
+    name: Buscar RSS e Publicar
 
     steps:
-      - name: 📥 Checkout do repositório
+      - name: Checkout do repositorio
         uses: actions/checkout@v4
 
-      - name: 🐍 Configurar Python 3.11
+      - name: Configurar Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-          cache: 'pip'
 
-      - name: 📦 Instalar dependências
+      - name: Instalar dependencias
         run: pip install -r requirements.txt
 
-      - name: 🔄 Buscar notícias e gerar HTML
+      - name: Buscar noticias e gerar HTML
         run: python fetch_news.py
 
-      - name: 💾 Commit do HTML atualizado
+      - name: Commit do HTML atualizado
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Voz Brasil Bot"
           git add index.html
-          git diff --staged --quiet || git commit -m "🗞️ Notícias atualizadas - $(date +'%d/%m/%Y %H:%M')"
+          git diff --staged --quiet || git commit -m "Noticias atualizadas"
 
-      - name: 🚀 Push para o repositório
+      - name: Push para o repositorio
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
-
-      
