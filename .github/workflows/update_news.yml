@@ -39,7 +39,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
 
-      - name: 🌐 Publicar no Netlify
-        if: ${{ secrets.NETLIFY_HOOK_URL != '' }}
-        run: |
-          curl -X POST -d '{}' "${{ secrets.NETLIFY_HOOK_URL }}"
+      
